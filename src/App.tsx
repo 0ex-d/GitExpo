@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Home from "./pages/Home"
 
 /** 
  * Entry point of the GitExpo project 
@@ -8,10 +9,11 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="gitexpo">
-      <div className="intro-content"> GitExpo</div>
-      <p className="sub-head">Github code explorer refined.</p>
-    </div>
+    <Home/>
+    // <div className="gitexpo">
+    //   <div className="intro-content"> GitExpo</div>
+    //   <p className="sub-head">Github code explorer refined.</p>
+    // </div>
   );
 }
 

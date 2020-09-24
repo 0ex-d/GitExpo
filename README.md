@@ -29,6 +29,42 @@ $ npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
 Refer to **_.eslintrc.js_** file for more info on prettier.
 
+## Using [Tailwindcss](https://tailwindui.com/documentation)
+
+For managing styling and css builds:
+
+```bash
+$ yarn add -D tailwindcss postcss-cli autoprefixer
+$ npm i --save-dev tailwindcss postcss-cli autoprefixer
+```
+
+Then add css build to **package.json** scripts section:
+
+```json
+"scripts": {
+    "start": "yarn run build:twcss && react-scripts start",
+    "build": "yarn run build:twcss && react-scripts build",
+    ...
+    "build:twcss": "postcss src/styles/tailwind.css -o src/styles/main.css"
+  }
+```
+
+Debugging post css error: *dddd*:
+
+**_autoprefixer_** package breaks **_PostCss_** and should be uninstalled and downgraded:
+
+```bash
+$ yarn remove autoprefixer
+$ npm un autoprefixer
+```
+
+Then;
+
+```
+$ yarn add -D autoprefixer@9.8.6
+$ npm i --save-dev autoprefixer@9.8.6
+```
+
 ## User Requirements
 
 - Be able to filter by Language, Technologies etc as already on Github explorer (repeated functionality).
