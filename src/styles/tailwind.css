@@ -1,0 +1,9 @@
+/** 
+ * import tailwind's styles from 
+ * base, components, and utilities pakages 
+*/
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
