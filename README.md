@@ -18,6 +18,17 @@ $ yarn start
 $ npm start
 ```
 
+## Code formatting: Prettier, Linter
+
+This project requires a typescript linter which can be installed:
+
+```bash
+$ yarn add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
+$ npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+Refer to **_.eslintrc.js_** file for more info on prettier.
+
 ## User Requirements
 
 - Be able to filter by Language, Technologies etc as already on Github explorer (repeated functionality).
