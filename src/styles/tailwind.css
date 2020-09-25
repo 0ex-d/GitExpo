@@ -7,3 +7,10 @@
 @tailwind components;
 
 @tailwind utilities;
+
+/* custom style for toggle button */
+.repo-user-button.active {
+    background: white; 
+    border-radius: 9999px; 
+    color: #4a5568;
+}
