@@ -10,6 +10,8 @@ import Jumbroton from "../../components/jumbroton"
 
 import FilterNav from "../../components/nav-filter"
 
+import Result from "../../components/results"
+
 /** 
  * Inject css style into our view 
  * File: main.css
@@ -25,6 +27,7 @@ const Home:React.FC = () => {
             subtitle="Github code explorer refined."
         />
         <FilterNav/>
+        <Result/>
         </>
     )
 }

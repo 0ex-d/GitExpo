@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Jumbroton: React.FC<Props> = (props: Props) => (
-    <div className="flex-1 flex flex-col text-center bg-gray-100 py-10">
+    <div className="flex-1 flex flex-col text-center bg-gray-100 py-10 pb-20 border-b">
         <h1 className="text-5xl">{props.title}</h1>
         <h4 className="text-lg text-gray-500">{props.subtitle}</h4>
   </div>

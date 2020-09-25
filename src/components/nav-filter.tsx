@@ -1,32 +1,26 @@
 
 import React from 'react'
+import FilterButton from './filter-button'
 
 const Nav:React.FC = () => {
     return (
-		<div className="bg-white shadow">
+		<div className="bg-white shadow-sm border-b fixed- top-0 w-full animated z-40">
 			<div className="container mx-auto px-4 py-4">
-				<div className="flex justify-between">
-					<div className="flex justify-center">
-						{/* selected filter items */}
-						<ul>
-							<li className="text-gray-600">Spoken Language:</li>
-							<li className="text-gray-600">Language:</li>
-							<li className="text-gray-600">Date range:</li>
-						</ul>
+					<div className="flex items-center justify-between">
+						{/* toggle repos/users */}
+						<div className="bg-gray-200 text-sm text-gray-500 leading-none border-2 border-gray-200 rounded-full inline-flex">
+							<button className="repo-user-button inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 focus:text-blue-400 rounded-l-full px-4 py-2 active" id="grid">
+								<span>Repositories </span>
+							</button>
+							<button className="repo-user-button inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 focus:text-blue-400 rounded-r-full px-4 py-2" id="list">
+								<span>Developers</span>
+							</button>
+						</div>
+						{/* filter by spoken | lang | date */}
+						<div className="text-gray-600"> <FilterButton label="Spoken Language"/></div>
+						<div className="text-gray-600"> <FilterButton label="Language"/></div>
+						<div className="text-gray-600"> <FilterButton label="Date range"/></div>
 					</div>
-					<div className="">
-						{/* Filter button to toggle items */}
-						<button type="button" className="flex items-center text-gray-700 px-3 py-1 border font-medium rounded"> 
-							<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" className="w-5 h-5 mr-1">
-								<g className="">
-									<path d="M0 0h24v24H0z" fill="none" className=""></path>
-									<path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z" className=""></path>
-								</g>
-							</svg>
-							Filters 
-						</button>
-					</div>
-				</div>
 			</div>
 		</div>
     )

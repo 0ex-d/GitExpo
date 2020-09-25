@@ -18805,6 +18805,12 @@ video {
   animation: bounce 1s infinite;
 }
 
+/* custom style for toggle button */
+
+.repo-user-button.active {
+  background: white; border-radius: 9999px; color: #63b3ed;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
