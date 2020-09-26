@@ -1,5 +1,6 @@
 
 import React from 'react'
+import avatar from "../assets/images/avatar.jpeg"
 
 const Nav:React.FC = () => {
     return (
@@ -36,7 +37,7 @@ const Nav:React.FC = () => {
 				<li className="h-10 w-10">
 					<img
 						className="h-full w-full rounded-full mx-auto"
-						src=""
+						src={avatar}
 						alt="avatar" />
 				</li>
 
