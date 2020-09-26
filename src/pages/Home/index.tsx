@@ -16,7 +16,7 @@ import Result from "../../components/results"
  * Inject css style into our view 
  * File: main.css
 */
-import "../../styles/main.css";
+import "../../styles/main.css";    
 
 const Home:React.FC = () => {
     return (
