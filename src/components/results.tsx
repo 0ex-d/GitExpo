@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Select, { ValueType } from "react-select";
+import "react-select/dist/react-select.css";
 
 /* mock data */
 import mockResults from "../data/mock-repos.json";
@@ -21,10 +23,25 @@ interface Repo {
  * Date range is a single condition
  */
 interface Filter {
+    id?: string;
+    value?: string;
     date?: string;
     language?: string[];
     language_spoken?: string[];
 }
+
+/**
+ * Current category of results shown
+ */
+enum ResultCat {
+    REPO = "repo",
+    USER = "user"
+}
+
+type SelectedItems = {
+    label: any;
+    value: any;
+ }
 
 /**
  * fmt Util
@@ -50,19 +67,63 @@ const filterBy = (data:any[], filter:Filter):any[] => {
 const Result:React.FC = () => {
 
     const [results, setResults] = useState<Repo[]>([]);
+    const [resultCat, setResultCat] = useState<ResultCat>(ResultCat.REPO);
+
+    const [filtered, setFiltered] = useState<Filter[]>([]);
+    const [selected, setSelected] = useState<ValueType<SelectedItems>>([]);
 
     useEffect(()=>{
         // filter by
         let filter = {language: ['Go','Python'] };
         let _results = filterBy(mockResults, filter);
 
-        setResults(_results);
+        //setResults(_results);
+        console.log(results);
     },[]);
 
-    console.log(results);
+    
+
+    /**
+     * 
+     * @param value 
+     * @param accessor 
+     */
+    const onFilterChange = (value:any, accessor:string) => {
+        let _filtered = filtered;
+        let insertNewFilter = 1;
+    
+        if (_filtered.length) {
+          _filtered.forEach((filter, i) => {
+            if (filter["id"] === accessor) {
+              if (value === "" || !value.length) _filtered.splice(i, 1);
+              else filter["value"] = value;
+    
+              insertNewFilter = 0;
+            }
+          });
+        }
+    
+        if (insertNewFilter) {
+          _filtered.push({ id: accessor, value: value });
+        }
+    
+        setFiltered(filtered);
+      };
 
     return (
         <>
+        {/* Test multiple select */}
+        <Select
+          style={{ width: "50%", marginBottom: "20px" }}
+          onChange={(sel:ValueType<SelectedItems>) => {
+            setSelected(sel);
+          }}
+          value={selected}
+          multi={true}
+          options={results.map((repo, i) => {
+            return { id: i, value: repo.language, label: repo.language };
+          })}
+        />
         <div className="mx-10 sm:mx-16 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                     <table className="min-w-full leading-normal">
